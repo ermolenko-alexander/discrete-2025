@@ -1,87 +1,27 @@
-SPbU Discrete — Листки по дискретной математике
+**SPbU Discrete — листки по дискретной математике**
 
-Назначение
-- Репозиторий с заданиями и решениями в LaTeX.
-- Каждый листок — отдельная папка `hometaskN` со своим `listN.tex` и собранным `listN.pdf`.
+_Этот репозиторий предназначен для выкладки заданий и примеров решения в LaTeX._
 
-Структура Репозитория
-- `hometask1/` — пример: исходник `list1.tex`, результат `list1.pdf`.
-- `.gitignore` — игнор LaTeX‑артефактов.
-- `README.md` — как работать, как сдавать.
+**Структура**
+- Каждое задание — в папке `hometaskN` (без пробелов).
+- Внутри: `listN.tex` и собранный `listN.pdf`.
+- Пример: `hometask1/` (_исходник_ и _результат_).
 
-Требования
-- Установленный LaTeX: TeX Live (Linux), MacTeX (macOS) или MiKTeX (Windows).
-- Утилита `latexmk` (обычно ставится вместе с TeX Live/MacTeX; в MiKTeX включите автоматическую установку пакетов).
-- По желанию: VS Code + расширение LaTeX Workshop или любой другой редактор.
+**Как собирать PDF**
+- Рекомендуем: `latexmk -pdf hometaskN/listN.tex`.
+- Очистка: `latexmk -C hometaskN/listN.tex`.
+- _Нужен установленный LaTeX (TeX Live/MacTeX/MiKTeX)._ 
 
-Установка latexmk (если не найден)
-- macOS: установите MacTeX с сайта tug.org или `brew install --cask mactex-no-gui` (и затем `sudo tlmgr install latexmk`).
-- Linux (TeX Live): установите пакет `latexmk` через менеджер пакетов (`apt install latexmk`, `dnf install latexmk`, и т. п.).
-- Windows: установите MiKTeX, включите «Install missing packages on-the-fly».
+**Что делают студенты**
+1. **Делают форк** этого репозитория.
+2. В своём форке создают папку `hometaskN` и файл `listN.tex`,
+   собирают `listN.pdf`.
+3. **Коммитят** `.tex` и `.pdf` (_временные файлы игнорируются_).
+4. **Сдают**: ссылка на форк или **Pull Request** сюда (по объявлению).
 
-Сборка PDF
-- Одноразовая сборка: `latexmk -pdf hometask1/list1.tex`
-- Непрерывная сборка при изменениях: `latexmk -pdf -pvc hometask1/list1.tex`
-- Очистка временных файлов: `latexmk -C hometask1/list1.tex`
+**Требования к оформлению**
+- Указывайте в титуле: **ФИО** и **группа**.
+- **Именование**: `hometaskN/listN.*` (_без пробелов_).
+- **Сборка без ошибок/критичных предупреждений**.
 
-Правила Именования
-- Папки: `hometaskN` (без пробелов), где `N` — номер листка.
-- Файлы: `listN.tex` и итоговый `listN.pdf` в той же папке.
-
-Инструкция Для Студентов: Форк и Сдача
-1) Сделайте форк репозитория у себя на GitHub.
-2) Клонируйте СВОЙ форк: `git clone <URL-вашего-форка>` и перейдите в папку проекта.
-3) Создайте папку для нужного листка (если её нет), напр.: `hometask2/`.
-4) Создайте исходник LaTeX `list2.tex` в этой папке. Минимальный шаблон:
-   
-   ```tex
-   \documentclass[10pt]{article}
-   \usepackage[utf8]{inputenc}
-   \usepackage[T2A]{fontenc}
-   \usepackage[russian]{babel}
-   \usepackage{amsmath,amssymb,amsthm}
-   \usepackage{hyperref}
-   \title{Дискретная математика — Листок 2}
-   \author{ФИО, группа}
-   \date{\\Дата сдачи}
-   \begin{document}
-   \maketitle
-   % Задача 1
-   % Ваше решение
-   \end{document}
-   ```
-
-5) Соберите PDF: `latexmk -pdf hometask2/list2.tex` → получите `hometask2/list2.pdf`.
-6) Проверьте, что всё корректно отображается (формулы, кириллица, гиперссылки/оглавление).
-7) Зафиксируйте изменения и отправьте в свой форк:
-   - `git add hometask2/list2.tex hometask2/list2.pdf`
-   - `git commit -m "Solve hometask 2"`
-   - `git push`
-8) Сдача: отправьте ссылку на ваш форк или создайте Pull Request в исходный репозиторий (если так указано преподавателем).
-
-Чек‑лист Перед Отправкой
-- PDF собирается без ошибок и предупреждений, влияющих на разметку.
-- В репозитории нет временных LaTeX‑файлов (они игнорируются `.gitignore`).
-- В коммите присутствуют только необходимые `.tex` и финальные `.pdf`.
-- Имена папок/файлов без пробелов и соответствуют формату `hometaskN/listN.*`.
-
-Подсказки и Частые Проблемы
-- `latexmk: command not found` — установите `latexmk`/TeX Live/MacTeX/MiKTeX (см. раздел выше).
-- Предупреждение про `todonotes` и `\marginparwidth` — добавьте в преамбулу перед `\usepackage{todonotes}` строку `\setlength{\marginparwidth}{2cm}`.
-- Кириллица/кодировки — подключите в преамбуле:
-  - `\usepackage[utf8]{inputenc}`
-  - `\usepackage[T2A]{fontenc}`
-  - `\usepackage[russian]{babel}`
-
-Шпаргалка по Git
-- Добавить файлы: `git add <путь>`
-- Коммит: `git commit -m "сообщение"`
-- Пуш: `git push`
-- Забрать изменения из исходного репо в свой форк (по желанию):
-  - Настройте upstream: `git remote add upstream <URL-исходного-репо>`
-  - Обновите ветку: `git fetch upstream && git merge upstream/main`
-
-Ссылки
-- TeX Live: https://www.tug.org/texlive/
-- MacTeX: https://tug.org/mactex/
-- MiKTeX: https://miktex.org/
+_Вопросы по LaTeX и сборке — к преподавателю/ассистентам на паре._
