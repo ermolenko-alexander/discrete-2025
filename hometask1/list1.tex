@@ -39,6 +39,9 @@
 \declaretheoremstyle[name=Задача,notebraces={[}{]}]{prosty}
 \declaretheorem[style=prosty,numberlike=theorem]{task}
 
+\declaretheoremstyle[name=Решение,notebraces={[}{]}]{prosty}
+\declaretheorem[style=prosty, numberlike=definition]{solution}
+
 \setstretch{1.2}
 \geometry{
     textheight=9in,
@@ -53,22 +56,36 @@
 \setuptodonotes{size=\small, color=white, bordercolor=white, textcolor=Bittersweet}
 
 \title{Листочек №1 ``Теория множеств''}
-\author{Матмех, группы 25.Б82-мм}
-\date{Октябрь 2024}
+\author{Стяжкин Артём Иванович, Матмех, группы 25.Б82-мм}
+\date{Октябрь 2025}
 
 \begin{document}
 \maketitle
 
-\section{Задачи}
+\section{Задачи - Решения}
 
 % 1. Множества — эквивалентные формулировки
 \begin{task}[1]
 Доказать, что
 \begin{enumerate}
-    \item[а)] $A \subseteq B \cap C$ тогда и только тогда, когда $A \subseteq B$ и $A \subseteq C$;
-    \item[б)] $A \subseteq B \setminus C$ тогда и только тогда, когда $A \subseteq B$ и $A \cap C = \varnothing$.
+    \item[а)] $A \subseteq B \cap C \Leftrightarrow A \subseteq B$ и $A \subseteq C$;
+    \item[б)] $A \subseteq B \setminus C \Leftrightarrow A \subseteq B$ и $A \cap C = \varnothing$.
 \end{enumerate}
 \end{task}
+
+\begin{solution}[1]
+Решение, чтобы доказать это нужно подтвердить необходимость и достаточность каждого из утверждений:
+\begin{enumerate}
+	\item[a)] \begin{enumerate}
+	\item[1.] $ \forall a \in A : a \in ( B \cap C ) \Rightarrow ( a \in B ), ( a \in C ) \Rightarrow A \subseteq B, A \subseteq C$;
+	\item[2.] $ \forall a \in A : a \in B, a \in C \Rightarrow (a \in B), (a \in C) \Rightarrow A \subseteq (B \cap C)$.
+	\end{enumerate}
+	\item[b)] \begin{enumerate}
+	\item[1.] $ \forall a \in A : a \in (B \setminus C) \Rightarrow (a \in B), (a \notin C) \Rightarrow A \subseteq B, A \cap C = \varnothing$;
+	\item[2.] $ \forall a \in A : a \in B, a \notin C \Rightarrow (a \in B), (a \notin C) \Rightarrow A \subseteq (B \setminus C)$.
+	\end{enumerate}
+\end{enumerate}
+\end{solution}
 
 % 2. Мощности множеств — равенства и включения
 \begin{task}[2]
@@ -80,6 +97,21 @@
 \end{enumerate}
 Привести примеры, когда указанные включения являются строгими.
 \end{task}
+
+\begin{solution}[2]
+По определению $\mathcal{P}(A) = \lbrace X : X \subseteq A \rbrace $, где X - подмножество A:
+\begin{enumerate}
+	\item[a)] $X \in \mathcal{P}(A \cap B) \Rightarrow X \in A \cap B \Rightarrow X \in A, X \in B \Rightarrow X \in \mathcal{P}(A) \cap \mathcal{P}(B)$;
+	$X \in \mathcal{P}(A) \cap \mathcal{P}(B) \Rightarrow X \in \mathcal{P}(A), X \in \mathcal{P}(B) \Rightarrow X \in \mathcal{P}(A \cap B)$;
+	\item[b)] $X \in \mathcal{P}(A) \cup \mathcal{P}(B) \Rightarrow X \in A$ or $X \in B \Rightarrow X \in \mathcal{P}(A \cup B)$;
+	\item[v)] $X \in \mathcal{P}(A \setminus B) \Rightarrow X \in A $ and $ X \notin B \Rightarrow X \in (\mathcal{P}(A) \setminus \mathcal{P}(B)) \cup \lbrace \varnothing \rbrace$.
+	\item[add)]
+	\begin{enumerate}
+	\item[b)]в случае если ни одно из множеств не пустое, то включение строгое
+	\item[v)]eсли A - непустое множество, то выполняется строгость включения, а также когда А != Б.
+	\end{enumerate}
+\end{enumerate}
+\end{solution}
 
 % 3. Алфавиты и порядки
 \begin{task}[3]
