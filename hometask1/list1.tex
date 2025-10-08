@@ -1,154 +1,133 @@
-\documentclass{article}
-\usepackage{amsmath, amsthm, amssymb, amsfonts}
-\usepackage{thmtools}
-\usepackage{graphicx}
-\usepackage{indentfirst}
-\usepackage{setspace}
-\usepackage{geometry}
-\usepackage{float}
-\usepackage{hyperref}
-\usepackage{cancel}
-\usepackage[utf8]{inputenc}
+\documentclass[12pt]{article}
+\usepackage[margin=2.2cm]{geometry}
 \usepackage[russian]{babel}
-\usepackage{framed}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{tcolorbox}
-\usepackage[textsize=small, textwidth=3.5cm]{todonotes}
-\setlength{\marginparwidth}{1.5cm}
-
-\colorlet{LightGray}{White!90!Periwinkle}
-\colorlet{LightOrange}{Orange!15}
-\colorlet{LightGreen}{Green!15}
-
-\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
-
-% Теоремные окружения и стили
-\declaretheoremstyle[name=Theorem,]{thmsty}
-\declaretheorem[style=thmsty,numberwithin=section]{theorem}
-\tcolorboxenvironment{theorem}{colback=LightGray}
-
-\declaretheoremstyle[name=Conjecture,]{thmsty}
-\declaretheorem[style=thmsty,numberwithin=section]{conjecture}
-\tcolorboxenvironment{conjecture}{colback=LightGray}
-
-\declaretheoremstyle[name=Definition,]{thmsty}
-\declaretheorem[style=thmsty,numberwithin=section]{definition}
-\tcolorboxenvironment{definition}{colback=LightGray}
-
-% Стиль задач: показываем пометку \NOTE в квадратных скобках и русское имя
-\declaretheoremstyle[name=Задача,notebraces={[}{]}]{prosty}
-\declaretheorem[style=prosty,numberlike=theorem]{task}
-
-\setstretch{1.2}
-\geometry{
-    textheight=9in,
-    textwidth=5.5in,
-    top=1in,
-    headheight=12pt,
-    headsep=25pt,
-    footskip=30pt,
-    right=4.5cm
-}
-
-\setuptodonotes{size=\small, color=white, bordercolor=white, textcolor=Bittersweet}
-
-\title{Листочек №1 ``Теория множеств''}
-\author{Матмех, группы 25.Б82-мм}
-\date{Октябрь 2024}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
 
 \begin{document}
-\maketitle
+\maketitle 
+\title Орел Владислав Олегович Б82-ММ
+\item1.1
+а) Доказать: \(A \subseteq B \cap C \Leftrightarrow A \subseteq B \ \text{и}\ A \subseteq C\).
 
-\section{Задачи}
+Док-во.
+\begin{itemize}
+\item \((\Rightarrow)\) Пусть \(x \in A\). следует \(A \subseteq B \cap C\) следует \(x \in B \cap C\), то есть \(x \in B\) и \(x \in C\). Следовательно, \(A \subseteq B\) и \(A \subseteq C\).
+\item \((\Leftarrow)\) Если \(A \subseteq B\) и \(A \subseteq C\), то для любого \(x \in A\) имеем \(x \in B\) и \(x \in C\), значит \(x \in B \cap C\). Следовательно, \(A \subseteq B \cap C\).
+\end{itemize}
+\item б) Доказать: A \subseteq B\backslash C\Leftrightarrow A \subseteq B \ \text{и} \ A\cap C=\O.
 
-% 1. Множества — эквивалентные формулировки
-\begin{task}[1]
-Доказать, что
-\begin{enumerate}
-    \item[а)] $A \subseteq B \cap C$ тогда и только тогда, когда $A \subseteq B$ и $A \subseteq C$;
-    \item[б)] $A \subseteq B \setminus C$ тогда и только тогда, когда $A \subseteq B$ и $A \cap C = \varnothing$.
-\end{enumerate}
-\end{task}
+Док-во.
+\begin{itemize}
+\item \((\Rightarrow)\) Пусть \(x \in A\) => \(x \in B), \ \text{т.к} \ A \subseteq B. A \cap C=\O => x \notin C.
+=> по опр. x \in B\backslash C => A \subseteq B\backslash C
+\item \((\Leftarrow)\) Пусть \(x \in A\) => x \in B \ \text{и} \ x \notin C, => A \subseteq B \ \text{и} \ x \notin A\cap C =>A \subseteq B и A\cap C=\O.
+=> по опр. x \in B\backslash C => A \subseteq B\backslash C
+\end{itemize}
 
-% 2. Мощности множеств — равенства и включения
-\begin{task}[2]
-Доказать следующие равенства и включения:
-\begin{enumerate}
-    \item[а)] $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$;
-    \item[б)] $\mathcal{P}(A \cup B) \supseteq \mathcal{P}(A) \cup \mathcal{P}(B)$;
-    \item[в)] $\mathcal{P}(A \setminus B) \subseteq (\mathcal{P}(A) \setminus \mathcal{P}(B)) \cup \{\varnothing\}$.
-\end{enumerate}
-Привести примеры, когда указанные включения являются строгими.
-\end{task}
+\item 1.2 
+а) Доказать равенство: \(\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)\).
 
-% 3. Алфавиты и порядки
-\begin{task}[3]
-Пусть $A = \{a_1, \ldots, a_m\}$ — конечный алфавит, $A^n$ — множество слов длины $n$ в алфавите $A$.
-\begin{enumerate}
-    \item[(a)] На $A^n$ задано отношение $R_1$: для $v = a_{i_1}\ldots a_{i_n}$ и $w = a_{j_1}\ldots a_{j_n}$ положим $(v,w)\in R_1$ тогда и только тогда, когда $i_k\le j_k$ для всех $k=1,\dots,n$ и $i_k<j_k$ для некоторого $k$. Является ли $R_1$ отношением частичного (линейного) порядка?
-    \item[(б)] На $A^*$ задано отношение $R_2$: для $v = a_{i_1}\ldots a_{i_n}$ и $w = a_{j_1}\ldots a_{j_r}$ положим $(v,w)\in R_2$ тогда и только тогда, когда существует $k$ от $1$ до $n$ с $i_\ell=j_\ell$ при $1\le \ell<k$ и $i_k<j_k$, причём первые $n$ символов $w$ совпадают со словом $v$. Является ли $R_2$ отношением частичного (линейного) порядка?
-\end{enumerate}
-\end{task}
+Док-во.
+\begin{itemize}
+\item \((\subseteq)\) Пусть \(X \in \mathcal{P}(A \cap B)\). Тогда \(X \subseteq A \cap B\), откуда \(X \subseteq A\) и \(X \subseteq B\). Следовательно, \(X \in \mathcal{P}(A)\) и \(X \in \mathcal{P}(B)\), то есть \(X \in \mathcal{P}(A) \cap \mathcal{P}(B)\).
+\item \((\supseteq)\) Пусть \(X \in \mathcal{P}(A) \cap \mathcal{P}(B)\). Тогда \(X \subseteq A\) и \(X \subseteq B\). Следовательно, \(X \subseteq A \cap B\), то есть \(X \in \mathcal{P}(A \cap B)\).
+\end{itemize}
 
-% 4. Функции — область значений и свойства
-\begin{task}[2]
-Для каждой из функций найти область значений и указать, является ли функция инъективной, сюръективной, биекцией.
-\begin{enumerate}
-    \item[(а)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = 3x + 1$;
-    \item[(б)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = x^2 + 1$;
-    \item[(в)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = x^3 - 1$;
-    \item[(г)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = e^x$;
-    \item[(д)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = \sqrt{3x^2 + 1}$;
-    \item[(е)] $f : [-\pi/2, \pi/2] \to \mathbb{R},\ f(x) = \sin x$;
-    \item[(ж)] $f : [0, \pi] \to \mathbb{R},\ f(x) = \sin x$;
-    \item[(з)] $f : \mathbb{R} \to [-1, 1],\ f(x) = \sin x$;
-    \item[(и)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = x^2 \sin x$.
-\end{enumerate}
-\end{task}
+\item б) Доказать: \(\mathcal{P}(A) \cup \mathcal{P}(B) \subseteq \mathcal{P}(A \cup B)\).
 
-% 5. Композиция функций — логические следствия
-\begin{task}[2]
-Даны $g : A \to B$ и $f : B \to C$. Рассмотрим композицию $g\circ f : A \to C$, $(g\circ f)(x)=f(g(x))$. Определить, какие утверждения верны:
-\begin{enumerate}
-    \item[(а)] Если $g$ инъективна, то $g\circ f$ инъективна.
-    \item[(б)] Если $f$ и $g$ сюръективны, то $g\circ f$ сюръективна.
-    \item[(в)] Если $f$ и $g$ биекции, то $g\circ f$ биекция.
-    \item[(г)] Если $g\circ f$ инъективна, то $f$ инъективна.
-    \item[(д)] Если $g\circ f$ инъективна, то $g$ инъективна.
-    \item[(е)] Если $g\circ f$ сюръективна, то $f$ сюръективна.
-\end{enumerate}
-\end{task}
+Док-во: Пусть \(X \in \mathcal{P}(A) \cup \mathcal{P}(B)\). Тогда \(X \subseteq A\) или \(X \subseteq B\). В любом случае \(X \subseteq A \cup B\), следовательно, \(X \in \mathcal{P}(A \cup B)\).
 
-% 6. Кафе-мороженое (парадокс ссор)
-\begin{task}[3]
-Учащиеся одной школы часто собираются группами и ходят в кафе-мороженое. После такого посещения они ссорятся настолько, что никакие двое из них после этого вместе мороженое не едят. К концу года выяснилось, что в дальнейшем они могут ходить в кафе-мороженое только поодиночке. Докажите, что если число посещений было к этому времени больше 1, то оно не меньше числа учащихся в школе.
-\end{task}
+Пример: A=\{1\}, B=\{1,2\}
 
-% 7. Вечерние визиты класса
-\begin{task}[3]
-30 учеников одного класса решили побывать друг у друга в гостях. Известно, что ученик за вечер может сделать несколько посещений, и что в тот вечер, когда к нему кто-нибудь должен прийти, он сам никуда не уходит. Покажите, что для того, чтобы все побывали в гостях у всех,
-\begin{enumerate}
-    \item[а)] четырёх вечеров недостаточно,
-    \item[б)] пяти вечеров также недостаточно,
-    \item[в)] а десяти вечеров достаточно,
-    \item[г)] и даже семи вечеров тоже достаточно.
-\end{enumerate}
-\end{task}
+=>\mathcal{P}(A \cup B)=\{\O,\{1\},\{2\},\{1,2\}\}
 
-% 8. Выборы мэра и знакомые
-\begin{task}[3]
-У каждого из жителей города $N$ число знакомых составляет не менее 30\% населения города. Житель идёт на выборы, если баллотируется хотя бы один из его знакомых. Докажите, что можно так провести выборы мэра города $N$ из двух кандидатов, что в них примет участие не менее половины жителей.
-\end{task}
+\mathcal{P}(A)=\{\O,1\}, \mathcal{P}(B)=\{\O,2\} =>\mathcal{P}(A)\cup \mathcal{P}(B)=\{\O,\{1\},\{2\}\}
 
-% 9. Комитеты в Думе
-\begin{task}[3]
-В Думе 1600 депутатов образовали 16000 комитетов по 80 человек в каждом. Докажите, что найдутся два комитета, имеющие не менее четырёх общих членов.
-\end{task}
+=>\mathcal{P}(A)\cup \mathcal{P}(B) \subset \mathcal{P}(A \cup 
 
-\vspace{1.5em}
-\noindent\textbf{Примечание.}
-\begin{quote}
-Напоминание: задачи, имеющие сложность 1 должны уметь решать все. На решение этих задач даётся дедлайн – две недели (на первый раз 09.10.2025).
-\end{quote}
+\item в) Доказать: \mathcal{P}(A \backslash B) \subseteq (\mathcal{P}(A) \backslash \mathcal{P}(B)) \cup \{\O\}.
+
+Док-во: 
+
+1) Пусть X \in \mathcal{P}(A \backslash B) => X \subseteq A \backslash B => X \subseteq A \ \text{и} \ X \nsubseteq B \ 
+\text{Если} \ X=\O, => X \subseteq A \ \text{и} \ X \subseteq B \ 
+\text{Если} \ X\neq\O, => X \subseteq A \ \text{и} \ X \cap B=\O => X \in \mathcal{P}(A) \backslash \mathcal{P}(B) \cup \{\O\}
+
+Пример: A=\{1,2\}, B=\{2\}
+
+=>\mathcal{P}(A \backslash B)=\{\O,\{1\}\}
+
+\mathcal{P}(A)=\{\O,1\}, \mathcal{P}(B)=\{\O,2\} =>\mathcal{P}(A)\backslash \mathcal{P}(B)=\{\{1\},\{1,2\}\}
+
+=>\mathcal{P}(A \backslash B) \subset \mathcal{P}(A)\backslash \mathcal{P}(B)\cup \{\O\}
+
+\item1.3
+\item a) Проверка св-в ОЧП:
+
+    1) Рефлексивность:  \forall v \ \text{должно выполняться} \ (v,v) \in R_1
+    для i_k<=i_k \ \text{будет выполняться, а для} \ i_k<i_k\ \ \text{-- нет} \
+    => \ \text{нерефлексивно}
+
+    2) Антисимметричность: условия \exists k : i_k<j_k, \ \text{и} \ i_k=j_k \ \text{не могут выполняться одновременно => неантисимметрично} 
+=> R_1 - \ \text{не ОЧП} \ 
+
+
+\item б) Проверка св-в ОЧП: \
+
+    1) Рефлексивность: \exists k : i_l=i_l => i_k<i_k \ \text{-- неверно} \
+    => \ \text{нерефлексивно}
+
+    2) Антисимметричность: условия \exists k : i_l=j_l, \ \text{и} \ i_k<j_k, i_l=j_l, \ \text{и} \ i_k<j_k \ \text{не могут выполняться одновременно => неантисимметрично}
+
+    => R_2 - \ \text{не ОЧП} \ 
+
+\item 1.4
+
+a) E(f)=R, биекция
+
+б) E(f)>=1, ничего
+
+в) E(f)=R, биекция
+
+г) E(f)>0, инъективна
+
+д) E(f)>=2, ничего
+
+е) E(f)=[-1;1], биекция
+
+ж) E(f)=[0;1], ничего
+
+з) E(f)=[-1;1], сюръективна
+
+и) E(f)=R, сюръективна
+
+\item 1.5
+
+а)неверно, т.к f может быть неинъективна
+
+б)верно, т.к f(x)=z => g(f(x))=g(z)=y
+
+в)верно, т.к f - инъективна и сюръективна и g - инъективна и сюръективна
+
+г)верно, т.к g(f(x1))=g(f(x2)) => f(x1)=f(x2) => x1=x2
+
+д)неверно, т.к f может быть неинъективна
+
+е)верно, т.к для каждого y существует x т.ч g(f(x))=y => f(x) должен быть определен для всех y
+
+\item 1.8
+
+Пусть A-множество жителей, k_i-\text{число знакомых для каждого жителя}
+
+
+C_1-\text{множество людей с } d_i>=0,5*|A|, \ C_2-\text{множество людей с } d_i<=0,5*|A|
+
+=> C_2=A \backslash C_1
+
+По условию d_i>=0,3*|A| \ => для C_1 - 0,3*|A|<=d_i<=0,5*|A|    
+
+=> C_1 \cap C_2 \neq\O => \text{такое возможно}
 
 \end{document}
