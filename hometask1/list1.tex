@@ -72,17 +72,17 @@
 
 \begin{proof}[Решение]\
 \begin{enumerate}
-    \item[а)] \textbf{Доказательство:}
+    \item[а)] Доказательство:
     
-    $(\Rightarrow)$ Пусть $A \subseteq B \cap C$. Тогда для любого $x \in A$ имеем $x \in B \cap C$, значит $x \in B$ и $x \in C$. Следовательно, $A \subseteq B$ и $A \subseteq C$.
+    $(\Rightarrow)$ Пусть $A \subseteq B \cap C$, тогда для любого $x \in A$ имеем $x \in B \cap C$, значит $x \in B$ и $x \in C$, тогда $A \subseteq B$ и $A \subseteq C$.
     
-    $(\Leftarrow)$ Пусть $A \subseteq B$ и $A \subseteq C$. Тогда для любого $x \in A$ имеем $x \in B$ и $x \in C$, значит $x \in B \cap C$. Следовательно, $A \subseteq B \cap C$.
+    $(\Leftarrow)$ Пусть $A \subseteq B$ и $A \subseteq C$, тогда для любого $x \in A$ имеем $x \in B$ и $x \in C$, значит $x \in B \cap C$, тогда $A \subseteq B \cap C$.
     
-    \item[б)] \textbf{Доказательство:}
+    \item[б)] Доказательство:
     
-    $(\Rightarrow)$ Пусть $A \subseteq B \setminus C$. Тогда для любого $x \in A$ имеем $x \in B$ и $x \notin C$. Следовательно, $A \subseteq B$ и $A \cap C = \varnothing$.
+    $(\Rightarrow)$ Пусть $A \subseteq B \setminus C$, тогда для любого $x \in A$ имеем $x \in B$ и $x \notin C$, тогда $A \subseteq B$ и $A \cap C = \varnothing$.
     
-    $(\Leftarrow)$ Пусть $A \subseteq B$ и $A \cap C = \varnothing$. Тогда для любого $x \in A$ имеем $x \in B$ и $x \notin C$ (так как если бы $x \in C$, то $x \in A \cap C \neq \varnothing$). Следовательно, $x \in B \setminus C$, значит $A \subseteq B \setminus C$.
+    $(\Leftarrow)$ Пусть $A \subseteq B$ и $A \cap C = \varnothing$, тогда для любого $x \in A$ имеем $x \in B$ и $x \notin C$ \, тогда $x \in B \setminus C$, значит $A \subseteq B \setminus C$.
 \end{enumerate}
 \end{proof}
 
@@ -99,23 +99,23 @@
 
 \begin{proof}[Решение]\
 \begin{enumerate}
-    \item[а)] \textbf{Доказательство:}
+    \item[а)] Доказательство:
     
-    $(\subseteq)$ Пусть $X \in \mathcal{P}(A \cap B)$, тогда $X \subseteq A \cap B \subseteq A$ и $X \subseteq A \cap B \subseteq B$, значит $X \in \mathcal{P}(A)$ и $X \in \mathcal{P}(B)$, следовательно $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
+    $(\subseteq)$ Пусть $X \in \mathcal{P}(A \cap B)$, тогда $X \subseteq A \cap B \subseteq A$ и $X \subseteq A \cap B \subseteq B$, значит $X \in \mathcal{P}(A)$ и $X \in \mathcal{P}(B)$, тогда $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
     
     $(\supseteq)$ Пусть $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$, тогда $X \subseteq A$ и $X \subseteq B$, значит $X \subseteq A \cap B$, следовательно $X \in \mathcal{P}(A \cap B)$.
     
-    \item[б)] \textbf{Доказательство:}
+    \item[б)] Доказательство:
     
-    Пусть $X \in \mathcal{P}(A) \cup \mathcal{P}(B)$, тогда $X \subseteq A$ или $X \subseteq B$, значит $X \subseteq A \cup B$, следовательно $X \in \mathcal{P}(A \cup B)$.
+    Пусть $X \in \mathcal{P}(A) \cup \mathcal{P}(B)$, тогда $X \subseteq A$ или $X \subseteq B$, значит $X \subseteq A \cup B$, тогда $X \in \mathcal{P}(A \cup B)$.
     
-    \textbf{Пример строгого включения:} $A = \{1\}$, $B = \{2\}$. Тогда $\{1,2\} \in \mathcal{P}(A \cup B)$, но $\{1,2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$, поэтому включение строгое.
+     Пример: $A = \{0\}$, $B = \{1\}$. Тогда $\{0,1\} \in \mathcal{P}(A \cup B)$, но $\{0,1\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$, поэтому включение строгое.
     
-    \item[в)]\textbf{Доказательство:}
+    \item[в)] Доказательство:
     
-    Пусть $X \in \mathcal{P}(A \setminus B)$, тогда $X \subseteq A \setminus B \subseteq A$, поэтому $X \in \mathcal{P}(A)$. Если $X \neq \varnothing$, то $X$ содержит хотя бы один элемент из $A \setminus B$, значит $X \not\subseteq B$, поэтому $X \notin \mathcal{P}(B)$. Следовательно $X \in \mathcal{P}(A) \setminus \mathcal{P}(B)$.
+    Пусть $X \in \mathcal{P}(A \setminus B)$, тогда $X \subseteq A \setminus B \subseteq A$, поэтому $X \in \mathcal{P}(A)$,сли $X \neq \varnothing$, то $X$ содержит хотя бы один элемент из $A \setminus B$, значит $X \not\subseteq B$, поэтому $X \notin \mathcal{P}(B)$, тогда $X \in \mathcal{P}(A) \setminus \mathcal{P}(B)$.
     
-    \textbf{Пример строгого включения:} $A = \{1,2\}$, $B = \{1\}$. Тогда $\mathcal{P}(A \setminus B) = \mathcal{P}(\{2\}) = \{\varnothing, \{2\}\}$, а $(\mathcal{P}(A) \setminus \mathcal{P}(B)) \cup \{\varnothing\} = \{\varnothing, \{2\}, \{1,2\}\}$.
+    Пример: $A = \{0,1\}$, $B = \{0\}$. Тогда $\mathcal{P}(A \setminus B) = \mathcal{P}(\{1\}) = \{\varnothing, \{1\}\}$, а $(\mathcal{P}(A) \setminus \mathcal{P}(B)) \cup \{\varnothing\} = \{\varnothing, \{1\}, \{0,1\}\}$.
 \end{enumerate}
 \end{proof}
 
@@ -159,7 +159,7 @@
      Свойства: инъективна, сюръективна, биекция
     
     \item[(б)] Область значений: $[1, +\infty)$ \\
-     Свойства: не инъективна ($f(1) = f(-1) = 2$), не сюръективна 
+     Свойства: не инъективна, не сюръективна 
     
     \item[(в)] Область значений: $\mathbb{R}$ \\
      Свойства: инъективна, сюръективна, биекция
@@ -168,19 +168,19 @@
      Свойства: инъективна, не сюръективна
     
     \item[(д)] Область значений: $[1, +\infty)$ \\
-    Свойства: не инъективна ($f(1) = f(-1) = 2$), не сюръективна
+    Свойства: не инъективна, не сюръективна
     
     \item[(е)] Область значений: $[-1, 1]$ \\
     Свойства: инъективна, не сюръективна
     
     \item[(ж)] Область значений: $[0, 1]$ \\
-    Свойства: не инъективна ($\sin(\pi/6) = \sin(5\pi/6) = 1/2$), не сюръективна
+    Свойства: не инъективна, не сюръективна
     
     \item[(з)] Область значений: $[-1, 1]$ \\
-    Свойства: не инъективна ($\sin 0 = \sin \pi = 0$), сюръективна
+    Свойства: не инъективна, сюръективна
     
     \item[(и)] Область значений: $\mathbb{R}$ \\
-    Свойства: не инъективна ($f(0) = f(\pi) = 0$), сюръективна
+    Свойства: не инъективна, сюръективна
 \end{enumerate}
 \end{proof}
 
@@ -199,13 +199,13 @@
 
 \begin{proof}[Решение]\
 \begin{enumerate}
-    \item[(а)] Неверно. Например, если $A = \{1\}$, $B = \{2,3\}$, $C = \{4\}$, $g(1) = 2$, тогда $f(2) = 4$, $f(3) = 4$.
+    \item[(а)] Неверно. Например, если $A = \{a\}$, $B = \{b,c\}$, $C = \{d\}$, $g(a) = b$, тогда $f(b) = d$, $f(c) = d$.
     
     \item[(б)] Верно. Пусть $c \in C$. Так как $f$ сюръективна, существует $b \in B$ такой что $f(b) = c$, так как $g$ сюръективна, существует $a \in A$ такой что $g(a) = b$, тогда $(g\circ f)(a) = f(g(a)) = f(b) = c$.
     
-    \item[(в)] Верно. Следует из (б) и того, что композиция инъективных функций инъективна.
+    \item[(в)] Верно. Из (б) и того, что композиция инъективных функций инъективна.
     
-    \item[(г)] Неверно. Например, если $A = \{1\}$, $B = \{2,3\}$, $C = \{4\}$, $g(1) = 2$, тогда $f(2) = 4$, $f(3) = 4$.
+    \item[(г)] Неверно. Например, если $A = \{a\}$, $B = \{b,c\}$, $C = \{d\}$, $g(a) = b$, тогда $f(b) = d$, $f(c) = d$.
     
     \item[(д)] Верно. Пусть $g(a_1) = g(a_2)$. Тогда $f(g(a_1)) = f(g(a_2))$, значит $(g\circ f)(a_1) = (g\circ f)(a_2)$. Так как $g\circ f$ инъективна, $a_1 = a_2$.
     
