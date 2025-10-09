@@ -11,33 +11,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage{framed}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{tcolorbox}
-\usepackage[textsize=small, textwidth=3.5cm]{todonotes}
-\setlength{\marginparwidth}{1.5cm}
-
-\colorlet{LightGray}{White!90!Periwinkle}
-\colorlet{LightOrange}{Orange!15}
-\colorlet{LightGreen}{Green!15}
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 
-% Теоремные окружения и стили
-\declaretheoremstyle[name=Theorem,]{thmsty}
-\declaretheorem[style=thmsty,numberwithin=section]{theorem}
-\tcolorboxenvironment{theorem}{colback=LightGray}
-
-\declaretheoremstyle[name=Conjecture,]{thmsty}
-\declaretheorem[style=thmsty,numberwithin=section]{conjecture}
-\tcolorboxenvironment{conjecture}{colback=LightGray}
-
-\declaretheoremstyle[name=Definition,]{thmsty}
-\declaretheorem[style=thmsty,numberwithin=section]{definition}
-\tcolorboxenvironment{definition}{colback=LightGray}
-
-% Стиль задач: показываем пометку \NOTE в квадратных скобках и русское имя
-\declaretheoremstyle[name=Задача,notebraces={[}{]}]{prosty}
-\declaretheorem[style=prosty,numberlike=theorem]{task}
+% Стиль для решений
+\declaretheoremstyle[name=Решение,]{solsty}
+\declaretheorem[style=solsty,numberlike=theorem]{solution}
 
 \setstretch{1.2}
 \geometry{
@@ -46,109 +25,89 @@
     top=1in,
     headheight=12pt,
     headsep=25pt,
-    footskip=30pt,
-    right=4.5cm
+    footskip=30pt
 }
 
-\setuptodonotes{size=\small, color=white, bordercolor=white, textcolor=Bittersweet}
-
-\title{Листочек №1 ``Теория множеств''}
-\author{Матмех, группы 25.Б82-мм}
-\date{Октябрь 2024}
+\title{Ниценко Снежана Андреевна 25.Б82-мм}
+\author{д/з 09-10-25}
+\date{}
 
 \begin{document}
 \maketitle
 
-\section{Задачи}
 
-% 1. Множества — эквивалентные формулировки
-\begin{task}[1]
-Доказать, что
+\begin{solution}[1.1]
 \begin{enumerate}
-    \item[а)] $A \subseteq B \cap C$ тогда и только тогда, когда $A \subseteq B$ и $A \subseteq C$;
-    \item[б)] $A \subseteq B \setminus C$ тогда и только тогда, когда $A \subseteq B$ и $A \cap C = \varnothing$.
+    \item[а)] 
+    
+    Для $A \subseteq B \cap C$ $\Rightarrow$ $A \subseteq B$ и $A \subseteq C$. Тогда $\forall$ x $\in A$ и $x \in B \cap C$, значит $x \in B$ и $x \in C$. Следовательно, $A \subseteq B$ и $A \subseteq C$.
+    
+    Для $A \subseteq B$ и $A \subseteq C$ $\Rightarrow$ $A \subseteq B \cap C$. Тогда $\forall$ $x \in A$ имеем $x \in B$ и $x \in C$, значит $x \in B \cap C$. Следовательно, $A \subseteq B \cap C$.
+    
+    \item[б)] 
+    
+    Для $A \subseteq B \setminus C$ $\Rightarrow$ $A \subseteq B$ и $A \cap C = \varnothing$. Тогда $\forall$ $x \in A$ имеем $x \in B$ и $x \notin C$. Значит $A \subseteq B$ и $A \cap C = \varnothing$.
+    
+    Для $A \subseteq B$ и $A \cap C = \varnothing$ $\Rightarrow$ $A \subseteq B \setminus C$. Тогда $\forall$ $x \in A$ имеем $x \in B$ и $x \notin C$, значит $x \in B \setminus C$. Следовательно, $A \subseteq B \setminus C$.
 \end{enumerate}
-\end{task}
+\end{solution}
 
-% 2. Мощности множеств — равенства и включения
-\begin{task}[2]
-Доказать следующие равенства и включения:
+\begin{solution}[1.2]
 \begin{enumerate}
-    \item[а)] $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$;
-    \item[б)] $\mathcal{P}(A \cup B) \supseteq \mathcal{P}(A) \cup \mathcal{P}(B)$;
-    \item[в)] $\mathcal{P}(A \setminus B) \subseteq (\mathcal{P}(A) \setminus \mathcal{P}(B)) \cup \{\varnothing\}$.
+    \item[а)] 
+    
+    $\rbrack$ (пусть) $X \in \mathcal{P}(A \cap B)$. Тогда $X \subseteq A \cap B$, значит $X \subseteq A$ и $X \subseteq B$, следовательно $X \in \mathcal{P}(A)$ и $X \in \mathcal{P}(B)$, то есть $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
+    
+    Обратно, $\rbrack$ $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$. Тогда $X \in \mathcal{P}(A)$ и $X \in \mathcal{P}(B)$, значит $X \subseteq A$ и $X \subseteq B$, следовательно $X \subseteq A \cap B$, т.е. $X \in \mathcal{P}(A \cap B)$.
+    
+    \item[б)] 
+    
+    $\rbrack$ $X \in \mathcal{P}(A) \cup \mathcal{P}(B)$. Тогда $X \subseteq A$ или $X \subseteq B$, значит $X \subseteq A \cup B$, следовательно $X \in \mathcal{P}(A \cup B)$.
+    
+    \text {Пример строгого включения:} $\rbrack$ $A = \{a\}$, $B = \{b\}$. Тогда $\mathcal{P}(A) \cup \mathcal{P}(B) = \{\varnothing, \{a\}, \{b\}\}$, а $\mathcal{P}(A \cup B) = \{\varnothing, \{a\}, \{b\}, \{a,b\}\}$.
+    
+    \item[в)] 
+    
+    $\rbrack$ $X \in \mathcal{P}(A \setminus B)$. Тогда $X \subseteq A \setminus B$, значит $X \subseteq A$ и $X \cap B = \varnothing$. 
+    
+    Если $X = \varnothing$, то $X \in \{\varnothing\} \subseteq (\mathcal{P}(A) \setminus \mathcal{P}(B)) \cup \{\varnothing\}$.
+    
+    Если $X \neq \varnothing$, то $X \subseteq A$, но $X \not\subseteq B$ (так как $X \cap B = \varnothing$ и $X \neq \varnothing$), значит $X \in \mathcal{P}(A) \setminus \mathcal{P}(B)$.
+    
+    \text {Пример строгого включения:} $\rbrack$ $A = \{a,b\}$, $B = \{b\}$. Тогда $\mathcal{P}(A \setminus B) = \mathcal{P}(\{a\}) = \{\varnothing, \{a\}\}$, а $(\mathcal{P}(A) \setminus \mathcal{P}(B)) \cup \{\varnothing\} = (\{\varnothing, \{a\}, \{b\},\{a,b\}\} \setminus \{\varnothing, \{b\}\}) \cup \{\varnothing\} = \{\{a\}, \{a,b\}, \varnothing\}$.
 \end{enumerate}
-Привести примеры, когда указанные включения являются строгими.
-\end{task}
+\end{solution}
 
-% 3. Алфавиты и порядки
-\begin{task}[3]
-Пусть $A = \{a_1, \ldots, a_m\}$ — конечный алфавит, $A^n$ — множество слов длины $n$ в алфавите $A$.
+
+\begin{solution}[1.4]
 \begin{enumerate}
-    \item[(a)] На $A^n$ задано отношение $R_1$: для $v = a_{i_1}\ldots a_{i_n}$ и $w = a_{j_1}\ldots a_{j_n}$ положим $(v,w)\in R_1$ тогда и только тогда, когда $i_k\le j_k$ для всех $k=1,\dots,n$ и $i_k<j_k$ для некоторого $k$. Является ли $R_1$ отношением частичного (линейного) порядка?
-    \item[(б)] На $A^*$ задано отношение $R_2$: для $v = a_{i_1}\ldots a_{i_n}$ и $w = a_{j_1}\ldots a_{j_r}$ положим $(v,w)\in R_2$ тогда и только тогда, когда существует $k$ от $1$ до $n$ с $i_\ell=j_\ell$ при $1\le \ell<k$ и $i_k<j_k$, причём первые $n$ символов $w$ совпадают со словом $v$. Является ли $R_2$ отношением частичного (линейного) порядка?
+    \item[(а)] $f(x) = 3x + 1$: О.з. $\mathbb{R}$, инъективна (макс. 1 прообраз для каждого образа), сюръективна ( $f(x)$=y разрешимо при любом x) $\Rightarrow$ биективна.
+    \item[(б)] $f(x) = x^2 + 1$: О.з. $[1, +\infty)$, не инъективна ($f(x)=f(-x)$), не сюръективна (не можем достичь отриц. значений).
+    \item[(в)] $f(x) = x^3 - 1$: О.з. $\mathbb{R}$, инъективна (сущ. прообраз для каждого образа), сюръективна ($f(x)$=y всегда разрешимо) $\Rightarrow$ биективна.
+    \item[(г)] $f(x) = e^x$: О.з. $(0, +\infty)$, инъективна (прообраз для каждого образа), не сюръективна (не можем достичь отриц. значений).
+    \item[(д)] $f(x) = \sqrt{3x^2 + 1}$: О.з. $[1, +\infty)$, не инъективна ($f(x)=f(-x)$), не сюръективна (не можем получить отриц. значения).
+    \item[(е)] $f(x) = \sin x$ на $[-\pi/2, \pi/2]$: О.з. $[-1, 1]$, инъективна (строго возрастает на заданном промежутке), не сюръективна (не получаем значения меньше -1 и больше 1).
+    \item[(ж)] $f(x) = \sin x$ на $[0, \pi]$: О.з. $[0, 1]$, не инъективна ($f(\pi/3)=f(2\pi/3)$), не сюръективна.
+    \item[(з)] $f(x) = \sin x$ на $\mathbb{R} \to [-1,1]$: О.з. $[-1,1]$, не инъективна (sin периодичен), сюръективна (все зн. [-1,1] достигаются).
+    \item[(и)] $f(x) = x^2 \sin x$: О.з. $\mathbb{R}$, не инъективна ($f(0)=f(\pi)$), сюръективна (для каждого y сущ. x).
 \end{enumerate}
-\end{task}
+\end{solution}
 
-% 4. Функции — область значений и свойства
-\begin{task}[2]
-Для каждой из функций найти область значений и указать, является ли функция инъективной, сюръективной, биекцией.
+\begin{solution}$[1.5]$ $g\circ f$ = $f(g(x))$
 \begin{enumerate}
-    \item[(а)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = 3x + 1$;
-    \item[(б)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = x^2 + 1$;
-    \item[(в)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = x^3 - 1$;
-    \item[(г)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = e^x$;
-    \item[(д)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = \sqrt{3x^2 + 1}$;
-    \item[(е)] $f : [-\pi/2, \pi/2] \to \mathbb{R},\ f(x) = \sin x$;
-    \item[(ж)] $f : [0, \pi] \to \mathbb{R},\ f(x) = \sin x$;
-    \item[(з)] $f : \mathbb{R} \to [-1, 1],\ f(x) = \sin x$;
-    \item[(и)] $f : \mathbb{R} \to \mathbb{R},\ f(x) = x^2 \sin x$.
+    \item[(а)] {Неверно}. $f(x) = x$, $g(x) = x^2$. $g\circ f$ = $x^2$ - не инъективна.
+    
+    \item[(б)] {Верно}. $g(x) = x$, $f(x) = x$. $g\circ f$ = x - сюръективна.
+    
+    \item[(в)] {Верно}. $f(x) = x$, $g(x) = x+1$. $g\circ f$ = x+1 - биективна.
+    
+    \item[(г)] Неверно. Если $A = \{x\}$, $B = \{y,z\}$, $C = \{u\}$, $g(x) = y$ $\Rightarrow$ $f(y) = u$, $f(z) = u$.
+    
+    \item[(д)] Верно. $\rbrack$ $g(x_1) = g(x_2)$. $\Rightarrow$ $f(g(x_1)) = f(g(x_2))$, значит $(g\circ f)(x_1) = (g\circ f)(x_2)$. Так как $g\circ f$ инъективна, $x_1 = x_2$.
+
+    
+    \item[(е)] {Неверно}. $A = \{x,y\}$, $B = \{z,w\}$, $C = \{u\}$, $g(x)=z$, $g(y)=w$, $f(z)=u$, $f(w)=u$. $\Rightarrow$ $g\circ f$ сюръективна, но $f$ не сюръективна.
 \end{enumerate}
-\end{task}
-
-% 5. Композиция функций — логические следствия
-\begin{task}[2]
-Даны $g : A \to B$ и $f : B \to C$. Рассмотрим композицию $g\circ f : A \to C$, $(g\circ f)(x)=f(g(x))$. Определить, какие утверждения верны:
-\begin{enumerate}
-    \item[(а)] Если $g$ инъективна, то $g\circ f$ инъективна.
-    \item[(б)] Если $f$ и $g$ сюръективны, то $g\circ f$ сюръективна.
-    \item[(в)] Если $f$ и $g$ биекции, то $g\circ f$ биекция.
-    \item[(г)] Если $g\circ f$ инъективна, то $f$ инъективна.
-    \item[(д)] Если $g\circ f$ инъективна, то $g$ инъективна.
-    \item[(е)] Если $g\circ f$ сюръективна, то $f$ сюръективна.
-\end{enumerate}
-\end{task}
-
-% 6. Кафе-мороженое (парадокс ссор)
-\begin{task}[3]
-Учащиеся одной школы часто собираются группами и ходят в кафе-мороженое. После такого посещения они ссорятся настолько, что никакие двое из них после этого вместе мороженое не едят. К концу года выяснилось, что в дальнейшем они могут ходить в кафе-мороженое только поодиночке. Докажите, что если число посещений было к этому времени больше 1, то оно не меньше числа учащихся в школе.
-\end{task}
-
-% 7. Вечерние визиты класса
-\begin{task}[3]
-30 учеников одного класса решили побывать друг у друга в гостях. Известно, что ученик за вечер может сделать несколько посещений, и что в тот вечер, когда к нему кто-нибудь должен прийти, он сам никуда не уходит. Покажите, что для того, чтобы все побывали в гостях у всех,
-\begin{enumerate}
-    \item[а)] четырёх вечеров недостаточно,
-    \item[б)] пяти вечеров также недостаточно,
-    \item[в)] а десяти вечеров достаточно,
-    \item[г)] и даже семи вечеров тоже достаточно.
-\end{enumerate}
-\end{task}
-
-% 8. Выборы мэра и знакомые
-\begin{task}[3]
-У каждого из жителей города $N$ число знакомых составляет не менее 30\% населения города. Житель идёт на выборы, если баллотируется хотя бы один из его знакомых. Докажите, что можно так провести выборы мэра города $N$ из двух кандидатов, что в них примет участие не менее половины жителей.
-\end{task}
-
-% 9. Комитеты в Думе
-\begin{task}[3]
-В Думе 1600 депутатов образовали 16000 комитетов по 80 человек в каждом. Докажите, что найдутся два комитета, имеющие не менее четырёх общих членов.
-\end{task}
-
-\vspace{1.5em}
-\noindent\textbf{Примечание.}
-\begin{quote}
-Напоминание: задачи, имеющие сложность 1 должны уметь решать все. На решение этих задач даётся дедлайн – две недели (на первый раз 09.10.2025).
-\end{quote}
+\end{solution}
 
 \end{document}
